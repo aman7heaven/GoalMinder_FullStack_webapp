@@ -1,0 +1,76 @@
+ <%layout('layouts/boilerplate')%>
+    
+
+      <div class="row">
+        <h1 class="text-center">
+            Edit Goal
+        </h1>
+        <div class="col-6  offset-3 mt-5 text-center">
+          
+            <form action="/updategoals/<%=goal._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+                <div>
+                  
+                    
+                    <div class="mb-5">
+                    <label  class="from-label" for="goal"> <b> Enter your goal </b></label>
+                    <input class="form-control" type="text" id="goal" name="new[goal]" value="<%=goal.goal%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                  
+                    <div class="mb-5">
+                    <label  class="from-label" for="currentDate"> <b>Enter the date</b> </label>
+                    <input class="form-control" type="date" id="currentDate" name="new[date]" value="<%=goal.date%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                 
+                     <div class="mb-5">
+                    <label class="from-label" for="currentTime"> <b> Enter the time </b></label>
+                    <input class="form-control" type="time" id="currentTime" name="new[time]" value="<%=goal.time%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+              
+        
+                  <div class="mb-4">
+                    <button class="btn btn-success" type="submit">Update Goal</button>
+
+                </div>
+                </div>
+            </form>
+
+            
+        </div>
+    </div>
+
+
+
+<script>
+    (function () {
+        'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.validated-form')
+      
+        // Loop over them and prevent submission
+        Array.from(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+      
+              form.classList.add('was-validated')
+            }, false)
+          })
+      })()
+               
+    </script>
+    
