@@ -177,7 +177,9 @@ app.post('/creategoals',isLoggedIn,validateGoal, catchAsync(async(req,res)=>{
     
      const now = new Date();
      const date = now.toLocaleDateString();
-     const time = now.toLocaleTimeString();
+     const time = new Intl.DateTimeFormat('en-US', {timeZone: 'Asia/Kolkata', hour: 'numeric',minute:'numeric', second:'numeric' }).format(now);
+
+
      goal.currtime=`${time}`;
      goal.currdate= `${date}`;
     // await Goals.findOneAndUpdate(goal._id,{currdate:,currtime:});
