@@ -314,7 +314,7 @@ var s=today.getSeconds();
    for (let goal = await cursor.next(); goal != null; goal = await cursor.next()) {
 
        if(goal.date==currdate && goal.time==currtime){
-        
+        console.log("match");
         const userId=goal.author._id;
         const remindergoal=goal.goal;
         const reciever=await User.findById(userId);
@@ -345,7 +345,7 @@ var s=today.getSeconds();
     }
    }
    
-},60000);
+},10000);
 
 
 
