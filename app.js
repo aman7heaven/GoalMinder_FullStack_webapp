@@ -345,7 +345,7 @@ var s=today.getSeconds();
     }
    }
    
-},20000);
+},45000);
 
 
 
